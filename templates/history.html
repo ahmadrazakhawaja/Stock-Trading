@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block History %}
+    History
+{% endblock %}
+
+{% block main %}
+{% for o in result1 %}
+<p>{{o.user_id}}</p>
+<br>
+<p>{{o.stock}}</p>
+<br>
+<p>{{o.transactionx}}</p>
+<br>
+<p>{{o.price}}</p>
+<br>
+<p>{{o.shares}}</p>
+<br>
+<p>{{o.dateandtime}}</p>
+{% endfor %}
+
+{% endblock %}

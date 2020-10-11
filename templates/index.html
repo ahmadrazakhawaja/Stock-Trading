@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block Index %}
+    Index
+{% endblock %}
+
+{% block main %}
+<p>stocks :</p>
+{% for stock in stocks1 %}
+ <p>{{stock.stock}}</p>
+ <p>      </p>
+{% endfor %}
+<br>
+<p>shares: </p>
+{% for share in shares1 %}
+ <p>{{share.shares}}</p>
+ <p>      </p>
+{% endfor %}
+<br>
+<p>price: </p>
+{% for price in prices1 %}
+ <p>{{price | usd}}</p>
+ <p>          </p>
+{% endfor %}
+<br>
+<p>holding: </p>
+{% for holding in a1 %}
+ <p>{{holding | usd}}</p>
+ <p>           </p>
+{% endfor %}
+<br>
+<p>current cash: </p>
+<pr>{{current1 | usd}}</pr>
+<br>
+<p>total: </p>
+    {{u1 | usd}}
+    <br>
+
+{% endblock %}

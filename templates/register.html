@@ -1,0 +1,70 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" type="password">
+            <input class="form-control" name="confirmation" placeholder="Password confirmation" type="password">
+        </div>
+        <button class="btn btn-primary" type="submit" onclick="return check()">create account</button>
+    </form>
+
+   <script>
+
+      function check() {
+          document.querySelector('form').onclick = function(event){
+             event.preventDefault();
+          };
+      var myForm=document.querySelector('form');
+        var username1=document.getElementsByName("username")[0].value;
+        var password1=document.getElementsByName("password")[0].value;
+        var count=0;
+        if(password1.length <= 3){
+            alert("password too short");
+            count++;
+        }
+        re = /[a-z]/;
+        if (!re.test(password1)) {
+    alert("Your password needs a lower case letter");
+    count++;
+
+}
+re = /[A-Z]/;
+if (!re.test(password1)) {
+    alert("Your password needs an uppser case letter");
+    count++;
+
+}
+re = /[0-9]/;
+if (!re.test(password1)) {
+    alert("Your password needs a number");
+    count++;
+}
+ if(count>0){
+    window.location.href = window.location.href;
+}
+        alert("chutiya");
+        $.get('/check?username='+ username1,function(data,status){
+            alert(data);
+            if(data=='false'){
+         alert("username already taken");
+            }
+                else{
+                    myForm.submit();
+                }
+});
+            }
+
+
+
+
+
+    </script>
+{% endblock %}
